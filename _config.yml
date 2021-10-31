@@ -1,1 +1,34 @@
-theme: jekyll-theme-cayman
+title: Jek
+email: amirkasra.esmaeilian@gmail.com
+description: Tux bot! A geeky bot :D
+
+# site settings 
+contact: true
+about: true
+version: v1.1.0
+
+# Theme settings 
+
+edit-date: false # show the date of last edit on pages
+default-theme: sandcastle # pick which theme loads by default
+
+# post settings 
+
+tags: foo bar
+# development settings 
+
+developer-controls: false # show developer specefic tips
+
+# Build settings
+theme: jek
+plugins:
+  - jekyll-feed
+
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class : 'syntax'
