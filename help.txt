@@ -1,0 +1,12 @@
+`$help` For help message.
+`$quote` For random quote from zenquotes.io.
+`$nonsense` For random nonsense from database.
+`$newns` For add new nonsense to database.
+example : `$newns YOUR NONSENSE`
+`$delns` For delete nonsense from database.
+use index for delete.
+example : `$delns INDEX`
+`$listns` For nonsense list.
+`$conj` For conjugation verb in french, Made by mlconjug3.
+tenses that conjugation verb in are => Présent, Imparfait, Futur, Passé Simple
+example : `$conj VERBE`

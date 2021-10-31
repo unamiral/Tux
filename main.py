@@ -52,29 +52,29 @@ async def on_message(message):
         await message.channel.send(f.read())
     elif message.content.startswith("$quote"):
         await message.channel.send(get_quote())
-    elif message.content.startswith("$chert"):
+    elif message.content.startswith("$nonsense"):
         if "custom" in db.keys():
             option = db["custom"]
             await message.channel.send(random.choice(option))
         else:
             await message.channel.send(":x: First you have to add nonsense!")
 
-    elif message.content.startswith("$newch"):
-        msg = message.content.split("$newch ", 1)[1]
+    elif message.content.startswith("$newns"):
+        msg = message.content.split("$newns ", 1)[1]
         update_custom_msg(msg)
         await message.channel.send(f"New message added. **{msg}**")
 
-    elif message.content.startswith("$delch"):
+    elif message.content.startswith("$delns"):
         custom = []
         if "custom" in db.keys():
-            index = int(message.content.split("$delch ", 1)[1])
+            index = int(message.content.split("$delns ", 1)[1])
             delete_custom_msg(index)
             custom = db["custom"]
             x = [x for x in custom]
             await message.channel.send(f"New nonsense list => **{x}**")
         else:
             await message.channel.send(":x: First you have to add nonsense!")
-    elif message.content.startswith("$listch"):
+    elif message.content.startswith("$listns"):
         custom = db["custom"]
         x = [x for x in custom]
         await message.channel.send(f"Nonsense list => **{x}**")
