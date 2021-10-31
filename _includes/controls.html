@@ -1,0 +1,57 @@
+<div class="nav">
+      <p style="text-align:right;">
+          <i class="far fa-moon fa-lg zoom" onclick="darkMode();"></i>
+          <i class="fas fa-palette fa-lg zoom" onclick="toggleTheme();"></i>
+          <i class="fas fa-pen-nib fa-lg zoom" onclick="toggleFont();"></i>
+          <i class="fas fa-user-astronaut fa-lg zoom" onclick="saveFavorite();"></i>
+          <i class="fas fa-tools fa-lg zoom" onclick="toggleSettings();"></i>
+          <i class="fas fa-snowplow fa-lg zoom" onclick="clearSettings();"></i>
+          <table style="float:right;">
+            <tr>
+              <td style="border: none;font-size: small;">theme</td>
+              <small></small><td id="whatHappened" style="border: none;font-size: small;"></td>
+            </tr>
+          </table>
+ 
+          {% include settings_table.html %}
+          {% include theme_table.html %}
+          {% include font_table.html %}
+
+      </p>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="center">
+            <p>{{site.title}} theme settings</p>
+            <br>
+            <input type="text" placeholder="#220E24" id="customBackground">
+            <button type="button" onclick="setCustomBackground();">background</button>
+            <br>
+            <input type="text" placeholder="#639CD9" id="customColor">
+            <button type="button" onclick="setCustomColor();">color</button>
+            <br>
+            <input type="text" placeholder="#220E24" id="customTheme">
+            <button type="button" onclick="setCustomTheme();">name</button>
+            <br>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<script>
+var themes = ["dark"];
+</script>
+
+{% for theme in site.data.themes %}
+  {% if theme.enabled %}
+    <script>
+      themes.push("{{theme.name}}");
+      console.log('added ' + '{{theme.name}}' + ' to themes');
+    </script>
+  {% endif %}
+{% endfor %}
+

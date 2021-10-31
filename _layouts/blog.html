@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+  <div class="center">
+    <div>
+      {% include controls.html %}
+      <p style="font-size: 20px;"> {% if page.layout == 'home' %}<b>{% endif %}<a href="/">Home</a>{% if page.layout == 'home' %}</b>{% endif %} / {% if page.layout == 'blog' %}<b>{% endif %} <a href="/blog">Blog</a> {% if page.layout == 'blog' %}</b>{% endif %} {% if site.contact %} {% if page.layout == 'contact' %}<b>{% endif %}  / <a href="/contact">Contact</a>{% if page.layout == 'contact' %}</b>{% endif %} {% endif %}
+      </p>
+    <div>
+    <div id="archives">
+      {% for category in site.categories %}
+        <div class="archive-group">
+          {% capture category_name %}{{ category | first }}{% endcapture %}
+          <div id="#{{ category_name | slugize }}"></div>
+          <h3 class="category-head">
+            {{ category_name }}
+          </h3>
+          <a name="{{ category_name | slugize }}"></a>
+          {% for post in site.categories[category_name] %}
+          <article class="archive-item">
+            <div style="line-height:14px;height:14px; border-bottom:2px dotted;">
+                <p style="text-align:left;">
+                  <a style="text-decoration: none;" href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+                  <span style="float:right;">
+                      {{post.date|date:'%B %d, %Y'}}
+                  </span>
+                </p>
+              </div>
+          </article>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      </div>
+  </div>
+  <footer style="position:fixed;bottom:5px;">
+    <p style="text-align:left;">
+    Developed by Tyler Butler  &nbsp;&nbsp;&nbsp;
+    <span style="float:right;">
+      {% include socials.html %}
+    </span>
+    </p>
+  </footer>
+</body>
+</html>

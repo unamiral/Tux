@@ -1,0 +1,49 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="{% link /assets/css/main.css %}">
+ 
+  <script src="https://kit.fontawesome.com/32a2b2a489.js" crossorigin="anonymous"></script>
+
+
+  <script src="{% link /assets/js/themeToggle.js %}"></script>
+  <script src="{% link /assets/js/toolTip.js %}"></script>
+
+
+  <script>
+      window.addEventListener('load', (event) => {
+        console.debug('[DEBUG] page loaded, checking storage');
+        checkStorage();
+        
+        if (localStorage.theme){
+          document.getElementById('whatHappened').innerHTML = localStorage.theme;
+        }
+        else if (sessionStorage.theme){
+          document.getElementById('whatHappened').innerHTML = sessionStorage.theme;
+        } else {
+          document.getElementById('whatHappened').innerHTML = 'n/a';
+        }
+      });
+  </script>
+
+  <!-- <script>
+      function myFunction() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+
+        document.getElementById("myBar").style.width = scrolled + "%";
+      }
+  </script> -->
+</head>
