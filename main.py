@@ -1,6 +1,7 @@
 import discord, os, requests, json, random
 from replit import db
 from mlconjug3 import Conjugator
+from ping import keep_alive
 
 client = discord.Client()
 
@@ -84,4 +85,5 @@ async def on_message(message):
         await message.channel.send(conjugation(verbe))
 
 
+keep_alive()
 client.run(os.getenv("TOKEN"))
