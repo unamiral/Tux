@@ -21,7 +21,8 @@
 
         <section id="downloads">
           {% if site.show_downloads %}
-            <a href="https://discord.com/api/oauth2/authorize?client_id=903078875184136282&permissions=0&scope=bot" class="btn">Add to server</a>
+            <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
+            <a href="{{ site.github.tar_url }}" class="btn">Download as .tar.gz</a>
           {% endif %}
           <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
