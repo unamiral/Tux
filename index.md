@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+---
+layout: home
+---  
 
-You can use the [editor on GitHub](https://github.com/amirkasraa/Tux/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+```text
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░██╗███████╗██╗░░██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░██║██╔════╝██║░██╔╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░██║█████╗░░█████═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░██╗░░██║██╔══╝░░██╔═██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░╚█████╔╝███████╗██║░╚██╗░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░╚════╝░╚══════╝╚═╝░░╚═╝░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░  v 1.1.0  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+``` 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Jek is a minimalist jekyll theme putting the power of color schemes in the user's hands. Toggle between schemes hassle-free, create new ones on the go, and store settings in-browser. Developed by [Tyler Butler](https://tbutler.org)
 
-### Markdown
+## ⚡ Features 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- [x] toggle light/dark with <i class="far fa-moon zoom" onclick="darkMode();"></i>
+- [x] choose theme with <i class="fas fa-palette zoom" onclick="toggleTheme();"></i>
+- [x] choose font with <i class="fas fa-pen-nib" onclick="toggleFont();"></i>
+- [x] save current theme for next visit with <i class="fas fa-user-astronaut zoom" onclick="saveFavorite();"></i>
+- [x] open/close settings with <i class="fas fa-tools zoom" onclick="toggleSettings();"></i>
+- [x] clear settings with <i class="fas fa-snowplow zoom" onclick="clearSettings();"></i>   
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+## 💡 All About The Theme 
 
-- Bulleted
-- List
+Theme settings are saved in [session](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and [local](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) storage. Toggling light/dark mode or choosing a random palette saves settings for only the current session. Clicking the save button adds the theme to local storage for future visits. 
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## 🍭 Default Themes 
 
-[Link](url) and ![Image](src)
-```
+*Try out the default themes by clicking below*
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+{% for themes in site.data.themes %}
+<div class="theme-options {{ themes.name }} zoom" onclick="setSpeceficPallet('{{ themes.name }}');">
+    <p class="center">{{ themes.name }} ~ Lorem ipsum dolor sit amet</p>
+</div>
+{% endfor %}  
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/amirkasraa/Tux/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
+## 👩‍🚀 Add New Themes  
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Adding new themes to your new jek site could not be easier, just pick a background color and text color and add them to main.css. Once you're done, add your theme to _data/themes.yaml. Check out [colorhunt](https://colorhunt.co/) for inspiration.
+
+
+1) Add a new scheme to main.css with background-color and color set.  
+  
+```css
+.mytheme {
+  background-color: #0a1d37;
+  color: #ffeedb;
+}
+```  
+
+2) Add a color scheme name to _data/themes.yaml.
+  
+```yaml
+- name: mytheme
+  enabled: true
+```  
+
+## ✍️ Contributing  
+
+If you're interested in contributing to Jek, feel free to fork the repository and make a pull request! If you made a cool new theme and want to add it to the defaults, create an issue and add the [*Theme Suggestion*](https://github.com/tcbutler320/jek/labels/Theme%20Suggestion) label.  
+
+## ⚖️ License
+
+Licensed under [MIT](/LICENSE.txt) by [@tcbutler320](https://github.com/tcbutler320).
