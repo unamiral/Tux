@@ -8,6 +8,7 @@
 ``` 
 
 # A discord bot for geeks.
+![Discord Bots](https://top.gg/api/widget/903078875184136282.svg)
 - [x] add conjugation function to bot.
 - [ ] music bot
 - [ ] and more ...
