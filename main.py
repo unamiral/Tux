@@ -10,7 +10,7 @@ prefix = "?"
 @client.event
 async def on_ready():
     print(f"\a Bot have logged in as {client.user}")
-    await client.change_presence(activity=discord.Game(name="$help"))
+    await client.change_presence(activity=discord.Game(name="?help"))
 
 
 @client.event
@@ -51,7 +51,7 @@ async def on_message(message):
         await message.channel.send(f"Nonsense list => **{x}**")
 
     elif message.content.startswith(f"{prefix}conj"):
-        verbe = message.content.split(f"{prefix} ", 1)[1]
+        verbe = message.content.split(f"{prefix}conj ", 1)[1]
         await message.channel.send(backend.conjugation(verbe))
 
 
