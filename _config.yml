@@ -1,4 +1,2 @@
 theme: jekyll-theme-hacker
 description: The discord bot
-github : 
-  add : https://discord.com/api/oauth2/authorize?client_id=903078875184136282&permissions=0&scope=bot
