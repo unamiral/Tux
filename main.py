@@ -17,7 +17,7 @@ async def on_ready():
 async def ping(ctx):
     embed=discord.Embed(title=f"Pong! {round(bot.latency * 1000)}ms", description="This is a tool for measure latency of bot.", color=0x109319)
     embed.set_author(name="Tux", icon_url="https://cdn.discordapp.com/avatars/903078875184136282/60933663442d590adb45032c757d588f.png?size=128", url="https://amirkasraa.github.io/Tux/")
-    embed.set_thumbnail("https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg")
+    embed.set_thumbnail(url= "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg")
     await ctx.send(embed=embed)
 @bot.command()
 async def load(ctx, ext):
