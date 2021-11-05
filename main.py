@@ -8,21 +8,36 @@ bot = commands.Bot(command_prefix="?")
 
 @bot.event
 async def on_ready():
-    print(f"\a Bot have logged in as {bot.user}")
+    print(f"\a Bot has logged in as {bot.user}")
     await bot.change_presence(status=discord.Status.online,
                               activity=discord.Game(name="?help"))
 
 
 @bot.command()
 async def ping(ctx):
-    embed=discord.Embed(title=f"Pong! {round(bot.latency * 1000)}ms", description="This is a tool for measure latency of bot.", color=0x109319)
-    embed.set_author(name="Tux", icon_url="https://cdn.discordapp.com/avatars/903078875184136282/60933663442d590adb45032c757d588f.png?size=128", url="https://amirkasraa.github.io/Tux/")
-    embed.set_thumbnail(url= "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg")
+    embed = discord.Embed(
+        title=f"Pong! {round(bot.latency * 1000)}ms",
+        description="This is a tool for measure latency of bot.",
+        color=0x109319)
+    embed.set_thumbnail(
+        url=
+        "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg"
+    )
     await ctx.send(embed=embed)
+
+
 @bot.command()
 async def load(ctx, ext):
     if ctx.author.id == 829306875076935680:
         bot.load_extension(f"cogs.{ext}")
+        embed = discord.Embed(title=f"{ext} has loaded.",
+                              description="For load cogs",
+                              color=0x109319)
+        embed.set_thumbnail(
+            url=
+            "https://static1.smartbear.co/smartbear/media/blog/wp/heavy-load.jpg"
+        )
+        await ctx.send(embed=embed)
     else:
         await ctx.send(":x: Access Denied. This command is only for developer")
 
@@ -31,6 +46,14 @@ async def load(ctx, ext):
 async def unload(ctx, ext):
     if ctx.author.id == 829306875076935680:
         bot.unload_extension(f"cogs.{ext}")
+        embed = discord.Embed(title=f"{ext} has unloaded.",
+                              description="For unload cogs",
+                              color=0x109319)
+        embed.set_thumbnail(
+            url=
+            "https://www.pngitem.com/pimgs/m/493-4931911_truck-unloading-vector-hd-png-download.png"
+        )
+        await ctx.send(embed=embed)
     else:
         await ctx.send(":x: Access Denied. This command is only for developer")
 
@@ -40,6 +63,14 @@ async def reload(ctx, ext):
     if ctx.author.id == 829306875076935680:
         bot.unload_extension(f"cogs.{ext}")
         bot.load_extension(f"cogs.{ext}")
+        embed = discord.Embed(title=f"{ext} has reloaded.",
+                              description="For reload cogs",
+                              color=0x109319)
+        embed.set_thumbnail(
+            url=
+            "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/reload-512.png"
+        )
+        await ctx.send(embed=embed)
     else:
         await ctx.send(":x: Access Denied. This command is only for developer")
 
