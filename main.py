@@ -48,10 +48,10 @@ async def unload(ctx, ext):
         bot.unload_extension(f"cogs.{ext}")
         embed = discord.Embed(title=f"{ext} has unloaded.",
                               description="For unload cogs",
-                              color=0x109319)
+                              color=0xc40906)
         embed.set_thumbnail(
             url=
-            "https://www.pngitem.com/pimgs/m/493-4931911_truck-unloading-vector-hd-png-download.png"
+            "https://i.imgur.com/05De7kW.png"
         )
         await ctx.send(embed=embed)
     else:
