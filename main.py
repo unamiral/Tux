@@ -1,7 +1,26 @@
-import discord, os
+import discord
+import os
 
 from ping import keep_alive
 from discord.ext import commands
+
+
+class CustomHelpCommand(commands.HelpCommand):
+    def __init__(self):
+        super().__init__()
+
+    async def send_cog_help(self, cog):
+        return await super().send_cog_help(cog)
+
+    async def send_bot_help(self, mapping):
+        return await super().send_bot_help(mapping)
+
+    async def send_command_help(self, command):
+        return await super().send_command_help(command)
+
+    async def send_group_help(self, group):
+        return await super().send_group_help(group)
+
 
 bot = commands.Bot(command_prefix="?")
 
@@ -25,8 +44,7 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
     elif isinstance(error, commands.errors.MissingPermissions):
         embed = discord.Embed(
-            title=
-            ":x: Sorry! But You Don't Have Enough Permissions To Run This Command",
+            title=":x: Sorry! But You Don't Have Enough Permissions To Run This Command",
             color=0xc40906)
         await ctx.send(embed=embed)
 
@@ -35,6 +53,8 @@ async def on_command_error(ctx, error):
             title=":x: Please Pass In All Of The Required Argument Correctly",
             color=0xc40906)
         await ctx.send(embed=embed)
+
+
 @bot.command()
 async def ping(ctx):
     embed = discord.Embed(
@@ -42,8 +62,7 @@ async def ping(ctx):
         description="This is a tool for measure latency of bot.",
         color=0x109319)
     embed.set_thumbnail(
-        url=
-        "https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg"
+        url="https://media.wired.com/photos/59fccff22d3f5732c7d5aa15/master/w_2560%2Cc_limit/Pong-TA-B1C1YX.jpg"
     )
     await ctx.send(embed=embed)
 
@@ -60,8 +79,7 @@ async def load(ctx, ext):
                           description="For load cogs",
                           color=0x109319)
     embed.set_thumbnail(
-        url=
-        "https://static1.smartbear.co/smartbear/media/blog/wp/heavy-load.jpg")
+        url="https://static1.smartbear.co/smartbear/media/blog/wp/heavy-load.jpg")
     await ctx.send(embed=embed)
 
 
@@ -85,8 +103,7 @@ async def reload(ctx, ext):
                           description="For reload cogs",
                           color=0x109319)
     embed.set_thumbnail(
-        url=
-        "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/reload-512.png")
+        url="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/reload-512.png")
     await ctx.send(embed=embed)
 
 
