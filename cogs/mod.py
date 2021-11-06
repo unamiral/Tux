@@ -19,13 +19,18 @@ class Mod(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def clear(ctx, amount=10):
+        embed = discord.Embed(title=f"Delete {amount} messages in 5s")
+        await ctx.send(embed=embed)
+        await asyncio.sleep(5)
         await ctx.channel.purge(limit=amount)
 
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def kick(ctx, member: commands.MemberConverter, *, reason=None):
         await member.kick(reason=reason)
-        await ctx.send(f"Kicked : {member.mention}")
+        embed = discord.Embed(title=f"Kicked : {member.mention} Because of {reason}", color=0xc40906)
+        embed.set_image(url="https://c.tenor.com/CqSWwijaSIwAAAAM/ban-banned.gif")
+        await ctx.send(embed=embed)
 
     @commands.command()
     @commands.has_permissions(administrator=True)
@@ -33,7 +38,8 @@ class Mod(commands.Cog):
         multiplier = {"s" : 1, "m" : 60, "h" : 3600, "d" : 86400}
         amount, unit = duration
         await member.ban(reason=reason)
-        embed = discord.Embed(title=f"Banned : {member.mention} For {duration}", color=0x2b75a6)
+        embed = discord.Embed(title=f"Banned : {member.mention} For {duration} Because of {reason}", color=0xc40906)
+        embed.set_image(url="https://c.tenor.com/CqSWwijaSIwAAAAM/ban-banned.gif")
         await ctx.send(embed=embed)
         await asyncio.sleep(amount * multiplier[unit])
         await ctx.guild.unban(member)
