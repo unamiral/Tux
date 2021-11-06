@@ -37,12 +37,10 @@ class Help(commands.Cog):
         prefix = "?"
         version = "1.0"
 
-        # setting owner name - if you don't wanna be mentioned remove line 49-60 and adjust help text (line 88)
         owner = 829306875076935680
         owner_name = "amirkasraa#8702"
 
         if not input:
-            # checks if owner is on this server - used to 'tag' owner
             try:
                 owner = ctx.guild.get_member(owner).mention
 
