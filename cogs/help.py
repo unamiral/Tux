@@ -50,7 +50,7 @@ class Help(commands.Cog):
             # starting to build embed
             emb = discord.Embed(
                 title='Commands and modules', color=0x2b75a6,
-                description=f'Use `{prefix}help <module>` to gain more information about that module\n :smile:\nFor more information, You can watch this video : https://youtu.be/dQw4w9WgXcQ')
+                description=f'Use `{prefix}help <module>` to gain more information about that module :smile:\nFor more information, You can watch this video : https://youtu.be/dQw4w9WgXcQ')
 
             # iterating trough cogs, gathering descriptions
             cogs_desc = ''
@@ -73,9 +73,9 @@ class Help(commands.Cog):
                 emb.add_field(name='Not belonging to a module', value=commands_desc, inline=False)
 
             # setting information about author
-            emb.add_field(name="About", value=f"The Bots is developed by amirkasraa#8702, based on discord.py.\n\
-                                    This version of it is maintained by {owner}\n\
-                                    Please visit https://github.com/amirkasraa/Tux to submit ideas or bugs.")
+            emb.add_field(
+                name="About",
+                value="The Bots is developed by amirkasraa#8702, based on discord.py.\nPlease visit https://github.com/amirkasraa/Tux to submit ideas or bugs.")
             emb.set_footer(text=f"Bot is running {version}")
 
         # block called when one cog-name is given

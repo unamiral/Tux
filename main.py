@@ -56,7 +56,7 @@ def is_me(ctx):
     return ctx.author.id == 829306875076935680
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.check(is_me)
 async def load(ctx, ext):
     bot.load_extension(f"cogs.{ext}")
@@ -68,7 +68,7 @@ async def load(ctx, ext):
     await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.check(is_me)
 async def unload(ctx, ext):
     bot.unload_extension(f"cogs.{ext}")
@@ -79,7 +79,7 @@ async def unload(ctx, ext):
     await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.check(is_me)
 async def reload(ctx, ext):
     bot.unload_extension(f"cogs.{ext}")
