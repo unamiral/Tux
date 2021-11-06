@@ -2,10 +2,11 @@ import discord
 import math
 from discord.ext import commands
 from mlconjug3 import Conjugator
-"""This is a module for help you in study!"""
 
 
 class Study(commands.Cog):
+    """This is a module for help you in study!"""
+
     def __init__(self, bot):
         self.bot = bot
 

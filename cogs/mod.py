@@ -2,8 +2,6 @@ import discord
 import asyncio
 from discord.ext import commands
 
-"""This is a module for moderate"""
-
 
 class DurationConverter(commands.Converter):
     async def convert(self, ctx, value):
@@ -16,6 +14,8 @@ class DurationConverter(commands.Converter):
 
 
 class Mod(commands.Cog):
+    """This is a module for moderate"""
+
     def __init__(self, bot):
         self.bot = bot
 

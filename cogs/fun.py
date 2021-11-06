@@ -4,10 +4,10 @@ import random
 import json
 from discord.ext import commands
 
-"""This is module for make you laugh"""
-
 
 class Fun(commands.Cog):
+    """This is module for make you laugh"""
+
     def __init__(self, bot):
         self.bot = bot
 
