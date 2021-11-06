@@ -1,7 +1,9 @@
-import discord, asyncio
+import discord
+import asyncio
 from discord.ext import commands
 
 """This is a module for moderate"""
+
 
 class DurationConverter(commands.Converter):
     async def convert(self, ctx, value):
@@ -17,10 +19,10 @@ class Mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["cls"])
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount=10):
-        """For clean chat. Usage: `?clean AMOUNT`"""
+        """For clean chat. Usage: `?clean AMOUNT` or `?cls AMOUNT`"""
         embed = discord.Embed(title=f"Delete {amount} messages in 5s")
         await ctx.send(embed=embed)
         await asyncio.sleep(5)
@@ -52,8 +54,7 @@ class Mod(commands.Cog):
         amount, unit = duration
         await member.ban(reason=reason)
         embed = discord.Embed(
-            title=
-            f"Banned : {member.mention} For {str(duration)} Because of {reason}",
+            title=f"Banned : {member.mention} For {str(duration)} Because of {reason}",
             color=0xc40906)
         embed.set_image(
             url="https://c.tenor.com/CqSWwijaSIwAAAAM/ban-banned.gif")
