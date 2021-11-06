@@ -33,10 +33,9 @@ class Help(commands.Cog):
         """Shows all modules of that bot"""
 
         prefix = "?"
-        version = "1.0"
+        version = "0.8-beta"
 
-        owner = 829306875076935680
-        owner_name = "@amirkasraa#8702"
+        owner = str(ctx.guild.owner)
 
         if not input:
             try:
@@ -53,7 +52,8 @@ class Help(commands.Cog):
             # iterating trough cogs, gathering descriptions
             cogs_desc = ''
             for cog in self.bot.cogs:
-                cogs_desc += f'`{cog}` {self.bot.cogs[cog].__doc__}\n'
+              if cog != "Help":
+                  cogs_desc += f'`{cog}` {self.bot.cogs[cog].__doc__}\n'
 
             # adding 'list' of cogs to embed
             emb.add_field(name='Modules', value=cogs_desc, inline=False)
@@ -73,7 +73,7 @@ class Help(commands.Cog):
             # setting information about author
             emb.add_field(
                 name="About",
-                value="The Bots is developed by amirkasraa#8702, based on discord.py.\nPlease visit https://github.com/amirkasraa/Tux to submit ideas or bugs.")
+                value="The Bots is developed by @amirkasraa#8702, based on discord.py.\nPlease visit https://github.com/amirkasraa/Tux to submit ideas or bugs.")
             emb.set_footer(text=f"Bot is running {version}")
 
         # block called when one cog-name is given
