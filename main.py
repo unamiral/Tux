@@ -35,7 +35,11 @@ async def on_command_error(ctx, error):
             color=0xc40906)
         await ctx.send(embed=embed)
 
-
+    elif isinstance(error, commands.BadArgument):
+        embed = discord.Embed(
+            title=":x: Please Pass In All Of The Required Argument Correctly",
+            color=0xc40906)
+        await ctx.send(embed=embed)
 @bot.command()
 async def ping(ctx):
     embed = discord.Embed(
@@ -95,33 +99,6 @@ for file in os.listdir("./cogs"):
     if file.endswith(".py"):
         bot.load_extension(f"cogs.{file[:-3]}")
 
-# @bot.command()
-# @commands.has_permissions(manage_messages=True)
-# async def clear(ctx, amount=10):
-#     await ctx.channel.purge(limit=amount)
 
-# @bot.command()
-# @commands.has_permissions(administrator=True)
-# async def kick(ctx, member: discord.Member, *, reason=None):
-#     await member.kick(reason=reason)
-#     await ctx.send(f"Kicked : {member.mention}")
-
-# @bot.command()
-# @commands.has_permissions(administrator=True)
-# async def ban(ctx, member: discord.Member, *, reason=None):
-#     await member.ban(reason=reason)
-#     await ctx.send(f"banned : {member.mention}")
-
-# @bot.command()
-# @commands.has_permissions(administrator=True)
-# async def unban(ctx, *, member):
-#   bans = await ctx.guild.bans()
-#   member_name, member_discriminator = member.split("#")
-#   for ban_entry in bans:
-#     user = ban_entry.user
-#     if (user.name, user.discriminator) == (member_name, member_discriminator):
-#       await ctx.guild.unban(user)
-#       await ctx.send(f"Unbanned : {user.mention}")
-#       return
 keep_alive()
 bot.run(os.getenv("TOKEN"))
