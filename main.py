@@ -23,15 +23,10 @@ async def on_command_error(ctx, error):
             title=":x: Please Pass In All Of The Missing Required Argument",
             color=0xc40906)
         await ctx.send(embed=embed)
-    elif isinstance(error, commands.errors.MissingPerrmissions):
+    elif isinstance(error, commands.errors.MissingPermissions):
         embed = discord.Embed(
             title=
             ":x: Sorry! But You Don't Have Enough Permissions To Run This Command",
-            color=0xc40906)
-        await ctx.send(embed=embed)
-    elif isinstance(error, commands.CommandError):
-        embed = discord.Embed(
-            title=":x: Access Denied. This command is only for developer",
             color=0xc40906)
         await ctx.send(embed=embed)
 
