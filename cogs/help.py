@@ -23,9 +23,7 @@ async def send_embed(ctx, embed):
 
 
 class Help(commands.Cog):
-    """
-    Sends this help message
-    """
+    """Sends the help message"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -38,7 +36,7 @@ class Help(commands.Cog):
         version = "1.0"
 
         owner = 829306875076935680
-        owner_name = "amirkasraa#8702"
+        owner_name = "@amirkasraa#8702"
 
         if not input:
             try:
@@ -50,7 +48,7 @@ class Help(commands.Cog):
             # starting to build embed
             emb = discord.Embed(
                 title='Commands and modules', color=0x2b75a6,
-                description=f'Use `{prefix}help <module>` to gain more information about that module :smile:\nFor more information, You can watch this video : https://youtu.be/dQw4w9WgXcQ')
+                description=f'Use `{prefix}help <module>` to gain more information about that module :smile:\nFor more information, \nYou can watch this video : https://youtu.be/dQw4w9WgXcQ')
 
             # iterating trough cogs, gathering descriptions
             cogs_desc = ''

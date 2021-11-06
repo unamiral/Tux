@@ -14,7 +14,7 @@ class DurationConverter(commands.Converter):
 
 
 class Mod(commands.Cog):
-    """This is a module for moderate"""
+    """This is a module for moderate your server."""
 
     def __init__(self, bot):
         self.bot = bot

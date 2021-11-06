@@ -40,7 +40,7 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
 
 
-@bot.command()
+@bot.command(hidden=True)
 async def ping(ctx):
     embed = discord.Embed(
         title=f"Pong! {round(bot.latency * 1000)}ms",

@@ -6,7 +6,7 @@ from discord.ext import commands
 
 
 class Fun(commands.Cog):
-    """This is module for make you laugh"""
+    """This is module for make you laugh!"""
 
     def __init__(self, bot):
         self.bot = bot
